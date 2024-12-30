@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -18,6 +20,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField("String", "API_KEY", "\"${project.properties["API_KEY"]}\"")
     }
 
     buildTypes {
@@ -38,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -47,7 +51,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
+
 
 dependencies {
 
@@ -66,4 +74,51 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.hilt.android)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+//    implementation (libs.androidx.hilt.lifecycle.viewmodel)
+
+// Retrofit
+    implementation(libs.retrofit)
+
+// okHttp
+    implementation(libs.okhttp.logging)
+
+// Gson Convertor
+    implementation(libs.converter.gson)
+
+// Viewmodel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
+// Navigation
+    implementation(libs.androidx.navigation.compose)
+
+// Hilt Navigation
+    implementation(libs.androidx.hilt.navigation.compose)
+
+// Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+// preferences datastore
+    implementation(libs.androidx.datastore.preferences)
+
+// Splash screen
+    implementation(libs.androidx.core.splashscreen)
+
+// Material icons
+    implementation(libs.androidx.material.icons.extended.android)
+
+// Coil
+    implementation(libs.coil.compose)
+
+// Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+
+// Coroutines
+    implementation(libs.androidx.room.ktx)
 }

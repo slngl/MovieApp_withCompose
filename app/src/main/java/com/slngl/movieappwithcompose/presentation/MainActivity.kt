@@ -1,4 +1,4 @@
-package com.slngl.movieappwithcompose
+package com.slngl.movieappwithcompose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.slngl.movieappwithcompose.ui.theme.MovieAppWithComposeTheme
+import com.slngl.movieappwithcompose.presentation.theme.MovieAppWithComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
