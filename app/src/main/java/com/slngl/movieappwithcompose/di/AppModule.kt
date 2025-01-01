@@ -25,7 +25,7 @@ object AppModule {
     @Singleton
     fun provideMovieRepository(
         api: OmdbApiService,
-        @Named("apiKey") apiKey: String
+        @Named("omdb_api_key") apiKey: String
     ): MovieRepository =
         MovieRepositoryImpl(apiService = api, apiKey = apiKey)
 
